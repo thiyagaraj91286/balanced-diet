@@ -29,6 +29,8 @@
         box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         z-index: 10;
         text-align: center;
+        max-width: 180px;
+        word-wrap: break-word;
     }
     .pricing-badge::before {
         content: "OFF";
@@ -54,6 +56,7 @@
         font-weight: bold;
         position: relative;
     }
+
     table {
         width: 95%;
         margin: 20px auto;
@@ -81,6 +84,7 @@
         margin-right: 8px;
         color: #ff704d;
     }
+
     .notes {
         width: 90%;
         margin: 20px auto;
@@ -93,6 +97,7 @@
         color: #ff704d;
         margin-top: 0;
     }
+
     .contact {
         width: 90%;
         margin: 10px auto 20px;
@@ -107,12 +112,43 @@
         color: #25D366; /* WhatsApp green */
         margin-right: 8px;
     }
+
     footer {
         text-align: center;
         padding: 15px;
         background: #ff704d;
         color: white;
         margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 600px) {
+        .pricing-badge {
+            position: relative;
+            top: 0;
+            right: 0;
+            margin: 10px auto;
+            display: inline-block;
+            max-width: 90%;
+            padding: 10px 15px;
+            font-size: 0.9em;
+        }
+        .pricing-badge::before {
+            top: -5px;
+            right: -5px;
+            padding: 3px 6px;
+            font-size: 0.7em;
+        }
+        header {
+            font-size: 1.6em;
+            padding: 15px 0;
+        }
+        table {
+            font-size: 0.9em;
+        }
+        td, th {
+            padding: 10px;
+        }
     }
 </style>
 </head>
