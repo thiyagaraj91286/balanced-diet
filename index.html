@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Meal Plan</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #fff8f0;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        position: relative;
+    }
+
+    /* Pricing Badge with OFF Label */
+    .pricing-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #ff704d;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        z-index: 10;
+        text-align: center;
+    }
+    .pricing-badge::before {
+        content: "OFF";
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: #ff3333;
+        color: white;
+        font-size: 0.8em;
+        font-weight: bold;
+        padding: 5px 10px;
+        transform: rotate(15deg);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    header {
+        background: #ff704d;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 2em;
+        font-weight: bold;
+        position: relative;
+    }
+    table {
+        width: 95%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 15px;
+        text-align: center;
+    }
+    th {
+        background: #ffb399;
+        color: #fff;
+        font-size: 1.1em;
+    }
+    tr:nth-child(even) {
+        background: #fff2e6;
+    }
+    tr:nth-child(odd) {
+        background: #ffe0cc;
+    }
+    td i {
+        margin-right: 8px;
+        color: #ff704d;
+    }
+    .notes {
+        width: 90%;
+        margin: 20px auto;
+        background: #fff0e6;
+        padding: 15px;
+        border-left: 5px solid #ff704d;
+        border-radius: 8px;
+    }
+    .notes h3 {
+        color: #ff704d;
+        margin-top: 0;
+    }
+    .contact {
+        width: 90%;
+        margin: 10px auto 20px;
+        background: #fff2e6;
+        padding: 15px;
+        border-left: 5px solid #ff704d;
+        border-radius: 8px;
+        font-size: 1.1em;
+        text-align: center;
+    }
+    .contact i {
+        color: #25D366; /* WhatsApp green */
+        margin-right: 8px;
+    }
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #ff704d;
+        color: white;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="pricing-badge">
+    First 2 months: 30 BHD<br>After: 35 BHD
+</div>
+
+<header>
+    Weekly Meal Plan (Sunday - Thursday)
+</header>
+
+<table>
+    <tr>
+        <th>Day</th>
+        <th>Morning Snack <i class="fas fa-coffee"></i></th>
+        <th>Lunch <i class="fas fa-utensils"></i></th>
+        <th>Evening Snack <i class="fas fa-cookie-bite"></i></th>
+    </tr>
+    <tr>
+        <td>Sunday</td>
+        <td>Moong sprouts with cucumber & tomato + Ginger tea</td>
+        <td>2 Chapathi + Chicken Chettinad + Green salad + Cucumber raitha + Broccoli & Cauliflower + Carrot Rice</td>
+        <td>Sugar-free biscuits + Ginger tea</td>
+    </tr>
+    <tr>
+        <td>Monday</td>
+        <td>Chickpea sprouts with carrot & coriander + Masala chai</td>
+        <td>2 Chapathi + Fish Gravy + Green salad + Carrot raitha + Chana & Beans + Beetroot Rice</td>
+        <td>Oats biscuits + Masala chai</td>
+    </tr>
+    <tr>
+        <td>Tuesday</td>
+        <td>Mixed sprouts (moong + chana) with lemon & onion + Ginger tea</td>
+        <td>2 Chapathi + Egg Masala Gravy + Green salad + Cucumber raitha + Cauliflower & Broccoli + Coconut Rice</td>
+        <td>Ragi biscuits + Ginger tea</td>
+    </tr>
+    <tr>
+        <td>Wednesday</td>
+        <td>Black-eyed peas sprouts with bell pepper & carrot + Masala chai</td>
+        <td>2 Chapathi + Pepper Chicken Gravy + Green salad + Carrot raitha + Chana & Carrot mix + Pulao</td>
+        <td>Savory mixture / namkeen + Masala chai</td>
+    </tr>
+    <tr>
+        <td>Thursday</td>
+        <td>Green gram sprouts with grated beetroot & coriander + Ginger tea</td>
+        <td>2 Chapathi + Prawn Thokku + Green salad + Cucumber raitha + Broccoli & Beans + Lemon Rice</td>
+        <td>Roasted nuts + small fruit bowl + Ginger tea</td>
+    </tr>
+</table>
+
+<div class="notes">
+    <h3>Notes:</h3>
+    <ul>
+        <li>Sprouts lightly seasoned with lemon, salt & pepper.</li>
+        <li>Ginger tea or Masala chai for variety (cardamom, cinnamon, clove in chai).</li>
+        <li>Steam veggies lightly with salt, pepper, or ghee.</li>
+        <li>Raitha alternates cucumber & carrot slices daily.</li>
+        <li>Vegetable rice rotates flavors for variety.</li>
+        <li>Evening bites rotate weekly to avoid repetition.</li>
+    </ul>
+</div>
+
+<div class="contact">
+    <i class="fab fa-whatsapp"></i> WhatsApp: +973-34051148
+</div>
+
+<footer>
+    Meal Plan Designed for Healthy & Delicious Weekdays
+</footer>
+
+</body>
+</html>
