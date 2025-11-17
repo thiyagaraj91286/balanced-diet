@@ -3,223 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Meal Plan</title>
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Healthy Meal Subscription</title>
+
 <style>
     body {
-        font-family: cursive;
-        background: #fff8f0;
         margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f7fff7;
         color: #333;
-        position: relative;
     }
 
-    /* Pricing Badge with OFF Label */
-    .pricing-badge {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: #ffb96e;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        z-index: 10;
-        text-align: center;
-        max-width: 200px;
-        word-wrap: break-word;
-    }
-    .pricing-badge::before {
-        content: "OFFER";
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        background: #ff3333;
-        color: white;
-        font-size: 0.8em;
-        font-weight: bold;
-        padding: 5px 10px;
-        transform: rotate(15deg);
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
+    /* Sticky Header */
     header {
-        background: #ff704d;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 2em;
-        font-weight: bold;
-        position: relative;
-    }
-
-    table {
-        width: 95%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    th, td {
-        padding: 15px;
-        text-align: center;
-    }
-    th {
-        background: #ffb399;
+        position: sticky;
+        top: 0;
+        background: #2E8B57; /* green */
         color: #fff;
-        font-size: 1.1em;
-    }
-    tr:nth-child(even) {
-        background: #fff2e6;
-    }
-    tr:nth-child(odd) {
-        background: #ffe0cc;
-    }
-    td i {
-        margin-right: 8px;
-        color: #ff704d;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 50;
     }
 
-    .notes {
-        width: 90%;
-        margin: 20px auto;
-        background: #fff0e6;
-        padding: 15px;
-        border-left: 5px solid #ff704d;
-        border-radius: 8px;
-    }
-    .notes h3 {
-        color: #ff704d;
-        margin-top: 0;
+    header .title {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.2;
     }
 
-    .contact {
-        width: 90%;
-        margin: 10px auto 20px;
-        background: #fff2e6;
-        padding: 15px;
-        border-left: 5px solid #ff704d;
-        border-radius: 8px;
-        font-size: 1.1em;
-        text-align: center;
-    }
-    .contact i {
-        color: #25D366; /* WhatsApp green */
-        margin-right: 8px;
+    header .title small {
+        font-size: 12px;
+        opacity: 0.9;
+        display: block;
     }
 
+    header .wh-btn {
+        background: #25D366;
+        padding: 8px 14px;
+        border-radius: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /* Sticky Footer */
     footer {
+        position: sticky;
+        bottom: 0;
+        background: #FF7F32;
+        color: #fff;
         text-align: center;
-        padding: 15px;
-        background: #ff704d;
-        color: white;
-        margin-top: 10px;
+        padding: 12px;
+        font-size: 16px;
     }
 
-    /* Responsive adjustments */
-    @media screen and (max-width: 600px) {
-        .pricing-badge {
-            position: relative;
-            top: 0;
-            right: 0;
-            margin: 10px auto;
-            display: inline-block;
-            max-width: 90%;
-            padding: 10px 15px;
-            font-size: 0.9em;
-        }
-        .pricing-badge::before {
-            top: -5px;
-            right: -5px;
-            padding: 3px 6px;
-            font-size: 0.7em;
-        }
-        header {
-            font-size: 1.6em;
-            padding: 15px 0;
-        }
-        table {
-            font-size: 0.9em;
-        }
-        td, th {
-            padding: 10px;
-        }
+    .container {
+        padding: 15px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .box {
+        background: #ffffff;
+        padding: 15px;
+        margin: 12px 0;
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+        border-left: 6px solid #2E8B57;
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    .box:nth-child(1) { animation-delay: 0.1s; }
+    .box:nth-child(2) { animation-delay: 0.25s; }
+    .box:nth-child(3) { animation-delay: 0.4s; }
+    .box:nth-child(4) { animation-delay: 0.55s; }
+    .box:nth-child(5) { animation-delay: 0.7s; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        color: #2E8B57;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .highlight {
+        color: #FF7F32;
+        font-weight: bold;
+    }
+
+    .whatsapp-btn {
+        display: block;
+        margin: 20px auto;
+        background: #25D366;
+        color: #fff;
+        padding: 12px 18px;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 18px;
+        text-decoration: none;
+        width: 80%;
+        max-width: 300px;
+        font-weight: bold;
+        animation: fadeIn 1s ease forwards;
     }
 </style>
 </head>
+
 <body>
 
-<div class="pricing-badge">
-    First 2 months: 45 BHD<br>After: 50 BHD
-</div>
-
 <header>
-    Monthly Meal Plan (Saturday - Thursday) 6 days a week
+    <div class="title">
+        Healthy Meal Subscription
+        <small> Nutritious Meals for Busy Professionals • Fresh • Balanced • Delivered with Care</small>
+    </div>
+
+    <a class="wh-btn" href="https://wa.me/+97334051148" target="_blank">Order Now</a>
 </header>
 
-<table>
-    <tr>
-        <th>Day</th>
-        <th>Morning Bite <i class="fas fa-coffee"></i></th>
-        <th>Lunch <i class="fas fa-utensils"></i></th>
-        <th>Evening Bite <i class="fas fa-cookie-bite"></i></th>
-    </tr>
-    <tr>
-        <td>Sunday</td>
-        <td>Lightly Sauted Sprouts + Flavored tea</td>
-        <td>2 Chapathi + Chicken Curry + Chicken + Green salad +  raitha + Fruits + Jeera Pulao</td>
-        <td>Variety Biscuits/Chips/Crackers Or DryFruits/Nuts/Dates</td>
-    </tr>
-    <tr>
-        <td>Monday</td>
-        <td>Lightly Sauted Sprouts + Flavored tea</td>
-        <td>2 Chapathi + Dal Palak + Boiled Egg + Green salad +  raitha + Fruits + Carrot Rice</td>
-        <td>Variety Biscuits/Chips/Crackers Or DryFruits/Nuts/Dates</td>
-    </tr>
-    <tr>
-        <td>Tuesday</td>
-        <td>Lightly Sauted Sprouts + Flavored tea</td>
-        <td>2 Chapathi + CauliFlower Gravy + Brocolli + Green salad + raitha + Fruits + Moong Dal Pulao</td>
-       <td>Variety Biscuits/Chips/Crackers Or DryFruits/Nuts/Dates</td>
-    </tr>
-    <tr>
-        <td>Wednesday</td>
-        <td>Lightly Sauted Sprouts + Flavored tea</td>
-        <td>2 Chapathi + Chicken Curry + Chicken 200gm + Green salad + Carrot raitha + Brocolli + Pulao</td>
-        <td>Variety Biscuits/Chips/Crackers Or DryFruits/Nuts/Dates</td>
-    </tr>
-    <tr>
-        <td>Thursday</td>
-        <td>Lightly Sauted Sprouts + Flavored tea</td>
-        <td>2 Chapathi + Prawn curry + Prawn 100gm + Green salad + Cucumber raitha + Corn + Lemon Rice</td>
-       <td>Variety Biscuits/Chips/Crackers Or DryFruits/Nuts/Dates</td>
-    </tr>
-</table>
+<div class="container">
 
-<div class="notes">
-    <h3>Notes:</h3>
-    <ul>
-        <li>Variety Sprouts lightly seasoned with curry leaves and red chilli.</li>
-        <li>Variety Flavored tea  (cardamom, cinnamon, clove in chai).</li>
-        <li>Variety Biscuits/Crackers (Wheat/Ragi/Oat biscuits).</li>
-        <li>Steam veggies lightly with salt & pepper.</li> 
-        <li>Raitha alternates cucumber & carrot slices daily.</li>
-        <li>Vegetable rice or Pulao rotates flavors for variety.</li>
-        <li>Evening bites rotate weekly to avoid repetition.</li>
-    </ul>
-</div>
+    <div class="box">
+        <h2>🌱 Morning Bite</h2>
+        <p>Daily 1 box of <strong>lightly sauted sprouts</strong> – protein packed & no fat.</p>
+        <p>Served with <strong>fresh flavored low-fat milk tea</strong>.</p>
+    </div>
 
-<div class="contact">
-    <i class="fab fa-whatsapp"></i> For your feedback and orders: +973-34051148
+    <div class="box">
+        <h2>🍱 Balanced Meal Box</h2>
+        <p>Your wholesome lunch includes:</p>
+        <ul>
+            <li>Healthy veg curry</li>
+            <li>2 soft chapathis</li>
+            <li>Green salad</li>
+            <li>Fresh fruit cuts</li>
+            <li>Raita</li>
+            <li><strong>Non-veg:</strong> chicken / fish / prawn / egg (dry type, less oil, medium spice) </li>
+            <li><strong>Veg:</strong> broccoli / mushroom / soya beans / mix veg / potato (dry/fry, less oil, medium spice)</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>🌇 Evening Bite</h2>
+        <p>Daily 1 box of <strong>dry fruits, nuts & dates mix</strong> </p>
+        <p>A perfect <strong>energy booster</strong> for your evening.</p>
+    </div>
+
+    <div class="box">
+        <h2>🚚 Delivery & Subscription</h2>
+        <p>All 3 boxes delivered daily(Sunday to Thursday) to your <strong>preferred location</strong>.</p>
+        <p><span class="highlight">2 days free trial</span> + Monthly subscription only <span class="highlight">BD 45</span>.</p>
+    </div>
+
+    <div class="box">
+        <h2>🎁 Early Bird Offers</h2>
+        <ul>
+            <li>✔ BD 5 off on your first month</li>
+            <li>✔ Free premium fruit upgrade for first 10 subscribers</li>
+            <li>✔ Refer a friend & get BD 3 cashback</li>
+            <li>✔ Quarterly subscribers enjoy 1 extra week free</li>
+        </ul>
+    </div>
+
+    <a class="whatsapp-btn" href="https://wa.me/+97334051148" target="_blank">
+        💬 Chat on WhatsApp
+    </a>
+
 </div>
 
 <footer>
-    Meal Plan Designed for Balanced, Healthy & Delicious Weekdays
+    Eat Fresh • Stay Healthy • Delivered Daily
 </footer>
 
 </body>
